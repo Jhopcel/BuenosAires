@@ -19,6 +19,7 @@
     {% block navbar %}
         <script>
             $(document).ready(function(){
+                set_nav_li("#titulo", "{% url 'tienda' %}");
                 set_nav_li("#inicio", "{% url 'home' %}", "{% static 'core/img/casco_cerrado.png' %}");
                 set_nav_li("#tienda", "{% url 'tienda' %}", "{% static 'core/img/bolsa.png' %}");
                 set_nav_li("#admsis", "{% url 'admin:index' %}", "{% static 'core/img/cohete.png' %}");
@@ -41,6 +42,7 @@
             <div id="nav">
                 <ul class="list-inline">
                     <!-- inicio menú para usuarios anónimos -->
+                    <h2 id="titulo">Buenos Aires</h2>
                     <li id="inicio">Inicio</li>    
                     <li id="tienda">Tienda</li>
                     <!-- fin menú para usuarios anónimos -->

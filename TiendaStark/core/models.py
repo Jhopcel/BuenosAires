@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
+from django.utils import timezone
 
 #
 # MODELOS DE BUENOS AIRES
@@ -50,13 +52,19 @@ class Factura(models.Model):
         return f'{self.nrofac} - {self.rutcli.nomusu} {self.rutcli.apeusu} - {self.idprod.nomprod}'
 
 class SolicitudServicio(models.Model):
+    class TipoSolicitud(models.TextChoices):
+        INSTALACION = "1", "Instalación"
+        MANTENCION = "2", "Mantención"
+        REPARACION = "3", "Reparación"
+    precio = models.IntegerField(default=25000)
     nrosol = models.IntegerField(primary_key=True)
-    nrofac = models.ForeignKey(Factura, models.DO_NOTHING, db_column='nrofac', null=False, blank=False)
-    tiposol = models.CharField(max_length=50, null=False, blank=False)
+    nrofac = models.ForeignKey(Factura, models.DO_NOTHING, db_column='nrofac', null=True, blank=False)
+    tiposol = models.CharField(max_length=1, choices=TipoSolicitud.choices, default=TipoSolicitud.MANTENCION, verbose_name="Tipo de Solicitud")
     fechavisita = models.DateField(null=False, blank=False)
-    ruttec = models.ForeignKey(PerfilUsuario, models.DO_NOTHING, db_column='ruttec', null=False, blank=False)
-    descsol = models.CharField(max_length=200, null=False, blank=False)
+    ruttec = models.ForeignKey(PerfilUsuario, models.DO_NOTHING, db_column='ruttec', null=True, blank=False)
+    descsol = models.TextField(max_length=200, null=False, blank=False)
     estadosol = models.CharField(max_length=50, null=False, blank=False)
+    horavisita = models.DateTimeField(default=timezone.now, verbose_name="hora de visita")
 
     class Meta:
         db_table = 'SolicitudServicio'
@@ -65,7 +73,7 @@ class SolicitudServicio(models.Model):
         clave = f'{self.nrosol} - {self.tiposol} - Técnico ({self.ruttec.nomusu} {self.ruttec.apeusu})'
         clave += f' - Cliente ({self.nrofac.rutcli.nomusu} {self.nrofac.rutcli.apeusu}) Factura({self.nrofac})'
         return clave
-        
+
 
 class GuiaDespacho(models.Model):
     nrogd = models.IntegerField(primary_key=True)

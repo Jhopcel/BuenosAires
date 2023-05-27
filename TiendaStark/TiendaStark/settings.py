@@ -176,8 +176,8 @@ THOUSAND_SEPARATOR = "."
 STATIC_URL = '/static/'
 MEDIA_ROOT = path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'tienda'
+LOGOUT_REDIRECT_URL = 'tienda'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 from django.contrib.auth import views as auth_views
 from .views import home, administrar_productos, tienda, ficha
 from .views import iniciar_sesion, registrar_usuario, cerrar_sesion
-from .views import perfil_usuario, iniciar_pago, pago_exitoso
+from .views import perfil_usuario, iniciar_pago, pago_exitoso, solicitud_servicio, iniciar_pagosol
 from .views import  index
 from .views_poblar_bd import poblar_bd
 
@@ -24,4 +24,7 @@ urlpatterns = [
     path('perfil_usuario/', perfil_usuario, name="perfil_usuario"),
     path('iniciar_pago/<id>', iniciar_pago, name="iniciar_pago"),
     path('pago_exitoso/', pago_exitoso, name="pago_exitoso"),
+    path('solicitud_servicio/', solicitud_servicio, name="solicitud_servicio"),
+    path('iniciar_pago_sol/<id>', iniciar_pagosol, name="iniciar_pago_sol"),
+    
 ]

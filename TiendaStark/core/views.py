@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse_lazy
-from .models import Producto, PerfilUsuario
-from .forms import ProductoForm, IniciarSesionForm
+from .models import Producto, PerfilUsuario, SolicitudServicio
+from .forms import ProductoForm, IniciarSesionForm, SolicitudServicioForm
 from .forms import RegistrarUsuarioForm, PerfilUsuarioForm
 #from .error.transbank_error import TransbankError
 from transbank.webpay.webpay_plus.transaction import Transaction, WebpayOptions
@@ -241,3 +241,122 @@ def perfil_usuario(request):
     form.fields['dirusu'].initial = perfil.dirusu
     data["form"] = form
     return render(request, "core/perfil_usuario.html", data)
+
+def solicitud_servicio(request):
+    data = {"mesg": "", "form": PerfilUsuarioForm}
+    
+    
+    if request.method == 'POST':
+        form = SolicitudServicioForm(request.POST)
+        if form.is_valid():
+            if request.user.is_authenticated and not request.user.is_staff:
+                return redirect(iniciar_pagosol, id)
+            else:
+                # Si el usuario que hace la compra no ha iniciado sesión,
+                # entonces se le envía un mensaje en la pagina para indicarle
+                # que primero debe iniciar sesion antes de comprar
+                data["mesg"] = "¡Para poder comprar debe iniciar sesión como cliente!"
+    form = SolicitudServicioForm()
+    return render(request, "core/solicitud_servicio.html", context={'form': form})
+
+
+@csrf_exempt
+def fichasol(request, id):
+    data = {"mesg": "", "Servicio": None}
+
+    # Cuando el usuario hace clic en el boton COMPRAR, se ejecuta el METODO POST del
+    # formulario de ficha.html, con lo cual se redirecciona la página para que
+    # llegue a esta VISTA llamada "FICHA". A continuacion se verifica que sea un POST 
+    # y se valida que se trate de un usuario autenticado que no sea de estaff, 
+    # es decir, se comprueba que la compra sea realizada por un CLIENTE REGISTRADO.
+    # Si se tata de un CLIENTE REGISTRADO, se redirecciona a la vista "iniciar_pago"
+    if request.method == "POST":
+        if request.user.is_authenticated and not request.user.is_staff:
+            return redirect(iniciar_pagosol, id)
+        else:
+            # Si el usuario que hace la compra no ha iniciado sesión,
+            # entonces se le envía un mensaje en la pagina para indicarle
+            # que primero debe iniciar sesion antes de comprar
+            data["mesg"] = "¡Para poder comprar debe iniciar sesión como cliente!"
+
+    # Si visitamos la URL de FICHA y la pagina no nos envia un METODO POST, 
+    # quiere decir que solo debemos fabricar la pagina y devolvera al browser
+    # para que se muestren los datos de la FICHA
+    data["Servicio"] = SolicitudServicio.objects.get(nrosol=id)
+    return render(request, "core/iniciar_pago_sol.html", data)
+
+@csrf_exempt
+def iniciar_pagosol(request, id):
+
+    # Esta es la implementacion de la VISTA iniciar_pago, que tiene la responsabilidad
+    # de iniciar el pago, por medio de WebPay. Lo primero que hace es seleccionar un 
+    # número de orden de compra, para poder así, identificar a la propia compra.
+    # Como esta tienda no maneja, en realidad no tiene el concepto de "orden de compra"
+    # pero se indica igual
+    print("Webpay Plus Transaction.create")
+    buy_order = str(random.randrange(1000000, 99999999))
+    session_id = request.user.username
+    amount = SolicitudServicio.objects.get(nrosol=id).precio
+    return_url = 'http://127.0.0.1:8000/pago_exitoso/'
+
+    # response = Transaction.create(buy_order, session_id, amount, return_url)
+    commercecode = "597055555532"
+    apikey = "579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C"
+
+    tx = Transaction(options=WebpayOptions(commerce_code=commercecode, api_key=apikey, integration_type="TEST"))
+    response = tx.create(buy_order, session_id, amount, return_url)
+    print(response['token'])
+
+    perfil = PerfilUsuario.objects.get(user=request.user)
+    form = PerfilUsuarioForm()
+
+    context = {
+        "buy_order": buy_order,
+        "session_id": session_id,
+        "amount": amount,
+        "return_url": return_url,
+        "response": response,
+        "token_ws": response['token'],
+        "url_tbk": response['url'],
+        "first_name": request.user.first_name,
+        "last_name": request.user.last_name,
+        "email": request.user.email,
+        "rut": perfil.rut,
+        "dirusu": perfil.dirusu,
+    }
+
+    return render(request, "core/iniciar_pago.html", context)
+
+@csrf_exempt
+def pago_exitososol(request):
+
+    if request.method == "GET":
+        token = request.GET.get("token_ws")
+        print("commit for token_ws: {}".format(token))
+        commercecode = "597055555532"
+        apikey = "579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C"
+        tx = Transaction(options=WebpayOptions(commerce_code=commercecode, api_key=apikey, integration_type="TEST"))
+        response = tx.commit(token=token)
+        print("response: {}".format(response))
+
+        user = User.objects.get(username=response['session_id'])
+        perfil = PerfilUsuario.objects.get(user=user)
+        form = PerfilUsuarioForm()
+
+        context = {
+            "buy_order": response['buy_order'],
+            "session_id": response['session_id'],
+            "amount": response['amount'],
+            "response": response,
+            "token_ws": token,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "email": user.email,
+            "rut": perfil.rut,
+            "dirusu": perfil.dirusu,
+            "response_code": response['response_code']
+        }
+
+        return render(request, "core/pago_exitoso.html", context)
+    else:
+        return redirect(home)

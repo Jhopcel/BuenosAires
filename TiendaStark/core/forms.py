@@ -2,12 +2,12 @@ from django import forms
 from django.forms import ModelForm, fields, Form
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Producto, PerfilUsuario
+from .models import Producto, PerfilUsuario, SolicitudServicio
 
 class ProductoForm(ModelForm):
     class Meta:
         model = Producto
-        fields = ['idprod', 'nomprod', 'descprod', 'precio']
+        fields = ['idprod', 'nomprod', 'descprod', 'precio', 'imagen']
 
 class IniciarSesionForm(Form):
     username = forms.CharField(widget=forms.TextInput(), label="Correo")
@@ -32,3 +32,10 @@ class PerfilUsuarioForm(Form):
 
     class Meta:
         fields = '__all__'
+        
+
+class SolicitudServicioForm(ModelForm):
+    class Meta:
+        model = SolicitudServicio
+        fields = ['nrosol','precio','tiposol','descsol','fechavisita','horavisita']
+        widgets = {'precio': forms.TextInput(attrs={'readonly': 'readonly'})}

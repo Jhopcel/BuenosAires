@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+<link href="{% static 'core/css/forms.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<h1>Ingresar una Solicitud de Servicio</h1>
+
+{% if form %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6 mb-3">
+            <label for="precio">ID:</label>
+            {{ form.nrosol}}
+        </div>
+        <div class="col-6 mb-3">
+            <label for="precio">Precio:</label>
+            {{ form.precio}}
+        </div>
+        <br>
+        <div class="col-6 mb-3">
+            <label for="tiposol">Tipo de Solicitud:</label>
+            {{ form.tiposol }}
+        </div>
+        <br>
+        <div class="col-6 mb-3">
+            <label for="descsol">Descripción:</label>
+            {{ form.descsol }}
+        </div>
+        <br>
+        <div class="col-12 mb-3">
+            <label for="fechavisita">Fecha de la visita:</label>
+            {{ form.fechavisita }}
+        </div>
+        <br>
+        <div class="col-12 mb-3">
+            <label for="horavisita">Hora de la visita:</label>
+            {{ form.horavisita }}
+        </div>
+        
+        <<input type="hidden" name="token_ws" value="{{ token_ws }}" />
+        <input type="submit" class="btn btn-primary" value="Ir a pagar">
+        {% if mesg %}
+        <div id="form_message" class="alert alert-danger" role="alert">{{ mesg }}</div>
+        {% endif %}
+    </div>
+</form>
+{% endif %}
+{% endblock content %}
