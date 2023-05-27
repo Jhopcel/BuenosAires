@@ -1,0 +1,48 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Api Rest Tienda Stark",
+    "dateExported": "2023-05-17T09:20:32.840Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "9fa1ca62-d9fb-4380-b768-671907a5e187",
+            "colId": "06173375-32f7-4a42-a4bb-5152ee7db33d",
+            "containerId": "",
+            "name": "read_all",
+            "url": "http://127.0.0.1:8000/api/Producto_read_all/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-05-17T07:46:29.111Z",
+            "modified": "2023-05-17T09:15:35.589Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Token 60785b78582ba68eac2301e6a120f154860154f3"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b738753d-11ba-4db8-a474-f1dfbdba7233",
+            "colId": "06173375-32f7-4a42-a4bb-5152ee7db33d",
+            "containerId": "",
+            "name": "Login",
+            "url": "http://127.0.0.1:8000/api/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-05-17T08:43:17.225Z",
+            "modified": "2023-05-17T08:49:45.196Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "text",
+                "raw": "{ \"username\": \"usuario_cliente\", \"password\": \"Duoc@123\"}",
+                "form": []
+            },
+            "tests": []
+        }
+    ],
+    "settings": {}
+}

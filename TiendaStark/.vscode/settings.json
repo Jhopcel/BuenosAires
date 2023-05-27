@@ -1,0 +1,7 @@
+{
+    "editor.minimap.enabled": false,
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "files.autoSave": "afterDelay",
+    "python.terminal.activateEnvironment": false,
+    "python.defaultInterpreterPath": "C:\\Users\\23plu\\Desktop\\Escritorio\\Informatica\\Tercer año\\INTEGRACION DE PLATAFORMAS\\Entregable 2\\TiendaStark2023\\TiendaStark_venv\\Scripts\\python.exe"
+}
