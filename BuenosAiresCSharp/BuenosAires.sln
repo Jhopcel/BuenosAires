@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuenosAires.DataLayer", "BuenosAires.DataLayer\BuenosAires.DataLayer.csproj", "{1F414C70-8A68-4D69-BDDB-5E5386867D3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuenosAires.BusinessLayer", "BuenosAires.BusinessLayer\BuenosAires.BusinessLayer.csproj", "{9B2EC09C-7083-4346-82B8-FDFA2DE278F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuenosAires.Model", "BuenosAires.Model\BuenosAires.Model.csproj", "{02B114DF-CF7D-488D-A6B5-B62BE0C67D13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuenosAires.BodegaBA.3Capas", "BuenosAires.BodegaBA\BuenosAires.BodegaBA.3Capas.csproj", "{043524BD-1277-4358-A485-0C05FA2CF97E}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BuenosAires.ServiceLayer", "BuenosAires.ServiceLayer\", "{F958D223-0BF1-4A33-88D4-02FD6AB2610A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		ProjectReferences = "{9b2ec09c-7083-4346-82b8-fdfa2de278f5}|BuenosAires.BusinessLayer.dll;{02B114DF-CF7D-488D-A6B5-B62BE0C67D13}|BuenosAires.Model.dll;{1F414C70-8A68-4D69-BDDB-5E5386867D3F}|BuenosAires.DataLayer.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_4795"
+		Debug.AspNetCompiler.PhysicalPath = "BuenosAires.ServiceLayer\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_4795\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_4795"
+		Release.AspNetCompiler.PhysicalPath = "BuenosAires.ServiceLayer\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_4795\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "4795"
+		SlnRelativePath = "BuenosAires.ServiceLayer\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuenosAires.VentaBA", "BuenosAires.VentaBA\BuenosAires.VentaBA.csproj", "{9168CB9A-7FAD-4391-A9F5-BEB447D6E1B3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F958D223-0BF1-4A33-88D4-02FD6AB2610A} = {F958D223-0BF1-4A33-88D4-02FD6AB2610A}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F414C70-8A68-4D69-BDDB-5E5386867D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F414C70-8A68-4D69-BDDB-5E5386867D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F414C70-8A68-4D69-BDDB-5E5386867D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F414C70-8A68-4D69-BDDB-5E5386867D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2EC09C-7083-4346-82B8-FDFA2DE278F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2EC09C-7083-4346-82B8-FDFA2DE278F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2EC09C-7083-4346-82B8-FDFA2DE278F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2EC09C-7083-4346-82B8-FDFA2DE278F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B114DF-CF7D-488D-A6B5-B62BE0C67D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B114DF-CF7D-488D-A6B5-B62BE0C67D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B114DF-CF7D-488D-A6B5-B62BE0C67D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B114DF-CF7D-488D-A6B5-B62BE0C67D13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{043524BD-1277-4358-A485-0C05FA2CF97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043524BD-1277-4358-A485-0C05FA2CF97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043524BD-1277-4358-A485-0C05FA2CF97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{043524BD-1277-4358-A485-0C05FA2CF97E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F958D223-0BF1-4A33-88D4-02FD6AB2610A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F958D223-0BF1-4A33-88D4-02FD6AB2610A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F958D223-0BF1-4A33-88D4-02FD6AB2610A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F958D223-0BF1-4A33-88D4-02FD6AB2610A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{9168CB9A-7FAD-4391-A9F5-BEB447D6E1B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9168CB9A-7FAD-4391-A9F5-BEB447D6E1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9168CB9A-7FAD-4391-A9F5-BEB447D6E1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9168CB9A-7FAD-4391-A9F5-BEB447D6E1B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1879E61C-9F0C-44C0-BCB6-F35CA7954640}
+	EndGlobalSection
+EndGlobal

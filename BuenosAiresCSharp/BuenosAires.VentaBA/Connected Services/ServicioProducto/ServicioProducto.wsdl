@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioProducto" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:4795/ServicioProducto.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:4795/ServicioProducto.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:4795/ServicioProducto.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BuenosAires.BusinessLayer" />
+      <xsd:import schemaLocation="http://localhost:4795/ServicioProducto.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BuenosAires.Model" />
+      <xsd:import schemaLocation="http://localhost:4795/ServicioProducto.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:4795/ServicioProducto.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioProducto_ObtenerRespuesta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRespuesta" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_ObtenerRespuesta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRespuestaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_ValidarProducto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarProducto" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_ValidarProducto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarProductoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_Crear_InputMessage">
+    <wsdl:part name="parameters" element="tns:Crear" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_Crear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_LeerTodos_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeerTodos" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_LeerTodos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerTodosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_Leer_InputMessage">
+    <wsdl:part name="parameters" element="tns:Leer" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_Leer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_Actualizar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_Actualizar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_Eliminar_InputMessage">
+    <wsdl:part name="parameters" element="tns:Eliminar" />
+  </wsdl:message>
+  <wsdl:message name="IServicioProducto_Eliminar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioProducto">
+    <wsdl:operation name="ObtenerRespuesta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/ObtenerRespuesta" message="tns:IServicioProducto_ObtenerRespuesta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/ObtenerRespuestaResponse" message="tns:IServicioProducto_ObtenerRespuesta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarProducto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/ValidarProducto" message="tns:IServicioProducto_ValidarProducto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/ValidarProductoResponse" message="tns:IServicioProducto_ValidarProducto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Crear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/Crear" message="tns:IServicioProducto_Crear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/CrearResponse" message="tns:IServicioProducto_Crear_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeerTodos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/LeerTodos" message="tns:IServicioProducto_LeerTodos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/LeerTodosResponse" message="tns:IServicioProducto_LeerTodos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Leer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/Leer" message="tns:IServicioProducto_Leer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/LeerResponse" message="tns:IServicioProducto_Leer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/Actualizar" message="tns:IServicioProducto_Actualizar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/ActualizarResponse" message="tns:IServicioProducto_Actualizar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioProducto/Eliminar" message="tns:IServicioProducto_Eliminar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioProducto/EliminarResponse" message="tns:IServicioProducto_Eliminar_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioProducto" type="tns:IServicioProducto">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerRespuesta">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/ObtenerRespuesta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarProducto">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/ValidarProducto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Crear">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/Crear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeerTodos">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/LeerTodos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Leer">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/Leer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Actualizar">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar">
+      <soap:operation soapAction="http://tempuri.org/IServicioProducto/Eliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioProducto">
+    <wsdl:port name="BasicHttpBinding_IServicioProducto" binding="tns:BasicHttpBinding_IServicioProducto">
+      <soap:address location="http://localhost:4795/ServicioProducto.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

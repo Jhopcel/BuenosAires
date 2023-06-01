@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block stylesheet %}
+    <link href="{% static 'core/css/forms.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <h1 style="color: black !important; font-weight: bolder;">Aires Acondicionados a la venta</h1>
+    {% if list %}
+        <div class="row text-center">
+        {% for producto in list %}
+            <a href="{% url 'ficha' producto.idprod %}">
+                <div class="tienda_auto_recuadro">
+                    <div class="tienda_auto_recuadro_interior">
+                        <img src="/media/{{ producto.imagen }}" class="tienda_auto_imagen" alt="">
+                    </div>
+                    <div>
+                        {{ producto.nomprod }}
+                        <br>
+                        {{ producto.descprod }}
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="tienda_link_home">
+        <a href="{% url 'home' %}" class="btn btn-info btn-sm">Ir a la página de inicio</a>
+    </div>
+{% endblock content %}

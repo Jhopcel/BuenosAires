@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-ServicioProducto" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicioProducto"/>
+        <property name="wsdl-ServicioProducto" location="xml-resources/web-service-references/ServicioProducto/wsdl/localhost_4795/ServicioProducto.svc.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicioProducto" destdir="${build.generated.dir}/jax-wsCache/ServicioProducto" wsdl="${wsdl-ServicioProducto}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:4795/ServicioProducto.svc?wsdl" xnocompile="true" xendorsed="true" package="BuenosAires.ServiceClient.ServicioProducto">
+            <depends file="${wsdl-ServicioProducto}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicioProducto"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicioProducto">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicioProducto" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicioProducto"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/BuenosAires/ServiceClient/ServicioProducto"/>
+    </target>
+    <target name="wsimport-client-ServicioStockProducto" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ServicioStockProducto"/>
+        <property name="wsdl-ServicioStockProducto" location="xml-resources/web-service-references/ServicioStockProducto/wsdl/localhost_4795/ServicioStockProducto.svc.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ServicioStockProducto" destdir="${build.generated.dir}/jax-wsCache/ServicioStockProducto" wsdl="${wsdl-ServicioStockProducto}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:4795/ServicioStockProducto.svc?wsdl" xnocompile="true" xendorsed="true" package="BuenosAires.ServiceClient.ServicioStockProducto">
+            <depends file="${wsdl-ServicioStockProducto}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ServicioStockProducto"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ServicioStockProducto">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ServicioStockProducto" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ServicioStockProducto"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/BuenosAires/ServiceClient/ServicioStockProducto"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ServicioProducto, wsimport-client-ServicioStockProducto"/>
+</project>

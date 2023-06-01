@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BuenosAires.BusinessLayer" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BuenosAires.BusinessLayer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:4795/ServicioStockProducto.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/BuenosAires.Model" />
+  <xs:complexType name="BcStockProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Accion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HayErrores" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BuenosAires.Model" minOccurs="0" name="Lista" nillable="true" type="q1:ArrayOfStockProducto" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BuenosAires.Model" minOccurs="0" name="ListaConEstados" nillable="true" type="q2:ArrayOfStockProductoConEstado" />
+      <xs:element minOccurs="0" name="Mensaje" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BuenosAires.Model" minOccurs="0" name="StockProducto" nillable="true" type="q3:StockProducto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BcStockProducto" nillable="true" type="tns:BcStockProducto" />
+</xs:schema>

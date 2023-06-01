@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BuenosAiresModelStoreContainer" CdmEntityContainer="base_datosEntities">
+    <EntitySetMapping Name="AnwoListaProducto">
+      <EntityTypeMapping TypeName="BuenosAiresModel.AnwoListaProducto">
+        <MappingFragment StoreEntitySet="AnwoListaProducto">
+          <ScalarProperty Name="nroserieanwo" ColumnName="nroserieanwo" />
+          <ScalarProperty Name="nomprodanwo" ColumnName="nomprodanwo" />
+          <ScalarProperty Name="precioanwo" ColumnName="precioanwo" />
+          <ScalarProperty Name="reservadoba" ColumnName="reservadoba" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_group">
+      <EntityTypeMapping TypeName="BuenosAiresModel.auth_group">
+        <MappingFragment StoreEntitySet="auth_group">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_group_permissions">
+      <EntityTypeMapping TypeName="BuenosAiresModel.auth_group_permissions">
+        <MappingFragment StoreEntitySet="auth_group_permissions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="permission_id" ColumnName="permission_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_permission">
+      <EntityTypeMapping TypeName="BuenosAiresModel.auth_permission">
+        <MappingFragment StoreEntitySet="auth_permission">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="content_type_id" ColumnName="content_type_id" />
+          <ScalarProperty Name="codename" ColumnName="codename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_user">
+      <EntityTypeMapping TypeName="BuenosAiresModel.auth_user">
+        <MappingFragment StoreEntitySet="auth_user">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="last_login" ColumnName="last_login" />
+          <ScalarProperty Name="is_superuser" ColumnName="is_superuser" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="is_staff" ColumnName="is_staff" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="date_joined" ColumnName="date_joined" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_user_groups">
+      <EntityTypeMapping TypeName="BuenosAiresModel.auth_user_groups">
+        <MappingFragment StoreEntitySet="auth_user_groups">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_user_user_permissions">
+      <EntityTypeMapping TypeName="BuenosAiresModel.auth_user_user_permissions">
+        <MappingFragment StoreEntitySet="auth_user_user_permissions">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="permission_id" ColumnName="permission_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="django_content_type">
+      <EntityTypeMapping TypeName="BuenosAiresModel.django_content_type">
+        <MappingFragment StoreEntitySet="django_content_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="app_label" ColumnName="app_label" />
+          <ScalarProperty Name="model" ColumnName="model" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="django_migrations">
+      <EntityTypeMapping TypeName="BuenosAiresModel.django_migrations">
+        <MappingFragment StoreEntitySet="django_migrations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="app" ColumnName="app" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="applied" ColumnName="applied" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Factura">
+      <EntityTypeMapping TypeName="BuenosAiresModel.Factura">
+        <MappingFragment StoreEntitySet="Factura">
+          <ScalarProperty Name="nrofac" ColumnName="nrofac" />
+          <ScalarProperty Name="fechafac" ColumnName="fechafac" />
+          <ScalarProperty Name="descfac" ColumnName="descfac" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="idprod" ColumnName="idprod" />
+          <ScalarProperty Name="rutcli" ColumnName="rutcli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuiaDespacho">
+      <EntityTypeMapping TypeName="BuenosAiresModel.GuiaDespacho">
+        <MappingFragment StoreEntitySet="GuiaDespacho">
+          <ScalarProperty Name="nrogd" ColumnName="nrogd" />
+          <ScalarProperty Name="estadogd" ColumnName="estadogd" />
+          <ScalarProperty Name="idprod" ColumnName="idprod" />
+          <ScalarProperty Name="nrofac" ColumnName="nrofac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerfilUsuario">
+      <EntityTypeMapping TypeName="BuenosAiresModel.PerfilUsuario">
+        <MappingFragment StoreEntitySet="PerfilUsuario">
+          <ScalarProperty Name="rut" ColumnName="rut" />
+          <ScalarProperty Name="tipousu" ColumnName="tipousu" />
+          <ScalarProperty Name="nomusu" ColumnName="nomusu" />
+          <ScalarProperty Name="apeusu" ColumnName="apeusu" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="dirusu" ColumnName="dirusu" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="BuenosAiresModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="idprod" ColumnName="idprod" />
+          <ScalarProperty Name="nomprod" ColumnName="nomprod" />
+          <ScalarProperty Name="descprod" ColumnName="descprod" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SolicitudServicio">
+      <EntityTypeMapping TypeName="BuenosAiresModel.SolicitudServicio">
+        <MappingFragment StoreEntitySet="SolicitudServicio">
+          <ScalarProperty Name="nrosol" ColumnName="nrosol" />
+          <ScalarProperty Name="tiposol" ColumnName="tiposol" />
+          <ScalarProperty Name="fechavisita" ColumnName="fechavisita" />
+          <ScalarProperty Name="descsol" ColumnName="descsol" />
+          <ScalarProperty Name="estadosol" ColumnName="estadosol" />
+          <ScalarProperty Name="nrofac" ColumnName="nrofac" />
+          <ScalarProperty Name="ruttec" ColumnName="ruttec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StockProducto">
+      <EntityTypeMapping TypeName="BuenosAiresModel.StockProducto">
+        <MappingFragment StoreEntitySet="StockProducto">
+          <ScalarProperty Name="idstock" ColumnName="idstock" />
+          <ScalarProperty Name="idprod" ColumnName="idprod" />
+          <ScalarProperty Name="nrofac" ColumnName="nrofac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
